@@ -2,38 +2,8 @@
 <html>
     <head>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-        <title>Angular Notes from SoloLearn</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-    <style type="text/css">
-        @import url('https://fonts.googleapis.com/css?family=Ubuntu');
-        body {
-            font-family: 'Ubuntu', sans-serif;
-        }
-    </style>
     </head>
     <body>
-        <p>{{ 2 + 2 }}</p> <!--Outputs 4-->
-    <hr/>
-    <label>Name:</label>
-    <input type="text" ng-model="name" placeholder="Enter your name:"><!--ng-model = directive which binds the HTML element to a property - Data Binding!-->
-    <hr/>
-    <h2>Hello {{name}}!</h2> <!--Auto shows the name-->
-    <!--Auto syncs model and view: view is the DOM that the user sees and model is the data shown to the user in the view and with which the user interacts-->
-    <hr/>
-    <div ng-app ng-init="celsius=0;diff=32">
-        <p>Celsius: <input type="text" ng-model="celsius"></p>
-        <p>Fahrenheit: {{celsius * 1.8 + diff }}</p>
-    </div>
-    <hr/>
-    <div ng-app ng-init="students=['David','Natasha','Kate']">
-        <ol>
-            <li ng-repeat="name in students">
-                {{name}}
-            </li>
-        </ol>
-    </div>
-    <hr/>
         <div ng-app="myApp" ng-controller="clickCounter">
             <button ng-click="count=count+1">Click me!</button>
             <p>{{ count }}</p>

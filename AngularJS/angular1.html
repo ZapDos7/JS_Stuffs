@@ -11,7 +11,7 @@ Notes form SoloLearn:
 1. Expression in {{}}
 -->
 <!DOCTYPE HTML>
-<html ng-app> <!--needs tis attribute-->
+<html ng-app="todoApp"> <!--needs tis attribute-->
 <head>
 	<title>Angular Notes from SoloLearn</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
@@ -45,26 +45,34 @@ Notes form SoloLearn:
 		</ol>
 	</div>
 	<hr/>
-	<div ng-app="MyApp" ng-controller="myCtrl">
-		<button ng-click="count=count+1">Click me!</button>
-		<p> {{count}} </p>
+<!--To Do App-->
+	<div ng-controller="todoList">
+		<span>Items: {{todos.length}}</span>
+		<ul>
+			<li ng-repeat="todo in todos">
+				<label class="checkbox">
+					<input type="checkbox" ng-model="todo.done">
+					<span class="done-{{todo.done}}">{{todo.text}}</span>
+				</label>
+			</li>
+		</ul>
+		<form ng-submit="addTodo()">
+			<input type="text" ng-model="todoText" size="30" placeholder="add new todo here">
+			<input type="submit" value="add">
+		</form>
 	</div>
 	<script>
-		var app = angular.module('MyApp',[])
-		app.controller('myCtrl', function($scope) {
-			$scope.count=0;
+		var app = angular.module('todoApp',[]);
+		app.controller('todoList', function($scope) {
+			$(scope).todos = [ 	{text:'Learn AngularJS', done:true},
+								{text:'build an AngularJS app', done:false}];
+			$scope.addTodo = function() {
+				if ($scope.todoText !== '') {
+					$scope.todos.push({text:$scope.todoText, done:false});
+					$scope.todoText='';
+				}
+			};
 		});
 	</script>
-	<hr/>
-	<div ng-app="myApp" ng-controller="clickCounter">
-        <button ng-click="count=count+1">Click me!</button>
-        <p>{{ count }}</p>
-   	</div>
-    <script>
-    	var app = angular.module('myApp', []);
-        app.controller('clickCounter', function($scope) {
-            $scope.count = 0;
-        });
-    </script>
 </body>
 </html>
