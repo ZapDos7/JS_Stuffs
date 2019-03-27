@@ -5,16 +5,13 @@ Express.js (web app server framework)
 AngularJS
 node.js server runtime environment
 -->
-
-<!--
-Notes form SoloLearn:
-1. Expression in {{}}
--->
 <!DOCTYPE HTML>
-<html ng-app="todoApp"> <!--needs tis attribute-->
+<html>
 <head>
 	<title>Angular Notes from SoloLearn</title>
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	<!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script> -->
+	<html lang="en-US">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 	<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
 	<style type="text/css">
 		@import url('https://fonts.googleapis.com/css?family=Ubuntu');
@@ -22,9 +19,11 @@ Notes form SoloLearn:
 			font-family: 'Ubuntu', sans-serif;
 		}
 	</style>
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+<meta content="utf-8" http-equiv="encoding">
 </head>
-<body>
-	<p>{{ 2 + 2 }}</p> <!--Outputs 4-->
+<body ng-app=""> <!--defines that we use Angular-->
+	<p>{{ 2 + 2 }}</p> <!--Outputs 4--><!--Notes form SoloLearn: 1. Expression in {{}}-->
 	<hr/>
 	<label>Name:</label>
 	<input type="text" ng-model="name" placeholder="Enter your name:"><!--ng-model = directive which binds the HTML element to a property - Data Binding!-->
@@ -32,12 +31,12 @@ Notes form SoloLearn:
 	<h2>Hello {{name}}!</h2> <!--Auto shows the name-->
 	<!--Auto syncs model and view: view is the DOM that the user sees and model is the data shown to the user in the view and with which the user interacts-->
 	<hr/>
-	<div ng-app ng-init="celsius=0;diff=32">
+	<div ng-app="" ng-init="celsius=0;diff=32">
 		<p>Celsius: <input type="text" ng-model="celsius"></p>
 		<p>Fahrenheit: {{celsius * 1.8 + diff }}</p>
 	</div>
 	<hr/>
-	<div ng-app ng-init="students=['David','Natasha','Kate']">
+	<div ng-app="Student Enum" ng-init="students=['David','Natasha','Kate']">
 		<ol>
 			<li ng-repeat="name in students">
 				{{name}}
@@ -45,6 +44,7 @@ Notes form SoloLearn:
 		</ol>
 	</div>
 	<hr/>
+
 <!--To Do App-->
 	<div ng-controller="todoList">
 		<span>Items: {{todos.length}}</span>
